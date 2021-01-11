@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.clean"
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation (Libraries.kotlin)
+    implementation (Androidx.appcompat)
+    implementation (Libraries.ktx)
+    implementation (Libraries.permissions)
+    implementation (Androidx.design)
+    implementation (Androidx.constraintlayout)
+    implementation (Androidx.lifecycleExtensions)
+    implementation (Androidx.navigationFragmentKtx)
+    implementation (Jetbrains.coroutinesAndroid)
+    implementation (Jetbrains.coroutinesCore)
+    implementation (Androidx.livedata)
+//    implementation (Androidx.viewmodel)
+
+
+    //dagger
+    implementation (Libraries.dagger)
+    kapt (Libraries.daggerCompiler)
+
+    implementation (Androidx.media)
+    implementation (Libraries.glide)
+
+    //room
+    implementation (Androidx.room)
+    kapt (Androidx.roomCompiler)
+    implementation (Androidx.roomRuntime)
+
+    //retrofit
+    implementation (Libraries.retrofit)
+    implementation (Libraries.gsonConverter)
+    implementation (Libraries.gson)
+    implementation (Libraries.scalarsConverter)
+}
