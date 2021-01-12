@@ -13,7 +13,7 @@ abstract class CleanDatabase : RoomDatabase() {
     abstract fun getProductDao(): ProductDao
 
     companion object {
-        const val DB_NAME = "basalam_database"
+        const val DB_NAME = "name_database"
 
         @Volatile
         private var INSTANCE: CleanDatabase? = null
